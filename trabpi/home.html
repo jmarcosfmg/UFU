@@ -9,14 +9,20 @@
 	$(document).ready(function(){
 		var aux=1, imagem = $("#imagemZero");
 	
-	imagem.attr('src', './images/painel'+aux+'.jpg');
-	(function loop() {
-		imagem.fadeOut(500);
+	//imagem.attr('src', './images/painel'+aux+'.jpg');
+	
+	function loop() {	
+		imagem.fadeOut(500).attr('src', './images/painel'+aux+'.jpg').fadeIn(500);;
 		aux = 1+(aux)%4;
-		imagem.attr('src', './images/painel'+aux+'.jpg').fadeIn(500).delay(000, loop());
-	}());
+	};
+
+	var interval = self.setInterval(function(){loop()},3000);
+		
 		
 		/*
+		
+
+	
 		$("#imagemZero").click(function(){
 			aux = 1+(aux)%4;
 			$(this).fadeOut(50, function () {

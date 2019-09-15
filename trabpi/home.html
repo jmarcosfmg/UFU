@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Imobiliaria Ok - Homepage</title>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/estilos.css">
+<script>
+	$(document).ready(function(){
+		var aux=1;
+		$("painelDeImg.img").change(function(){
+			var image = this;
+			aux = (aux+1)%5;
+			image.fadeOut(50, function () {
+				image.attr('src', './images/painel'+aux+'.jpg');
+				image.fadeIn(50);
+				image.delay(50);
+			});
+		});
+		
+		$("painelDeImg.img").attr('src', './images/painel'+aux+'.jpg');
+	});
+	
+</script>
+</head>
+<body>
+	<header id="cabecalho" name="cabecalho"></header>
+
+	<nav class="navbar" id="barraNavegacao" name="barraNavegacao">
+		<div style="width:50%; margin: 0px auto;">
+			<ul>
+				<li><a href="./home.html">Início</a></li>
+				<li><a href="./pesquisa">Pesquisar Imóveis</a></li>
+
+				<a href="#redirecionar">
+					<img src="ufu.png" style="height:30px; width:40px; margin-bottom:-2%;"></a>
+
+					<li><a href="#login">Login</a></li>
+					<li><a href="#fale">Fale conosco</a></li>
+				</ul>
+
+			</div>
+		</nav>
+
+<div id="corpo" name="corpo" class="principal">
+	<img src="./images/logo.png">
+	<div name="painelDeImg" id="painelDeImg" height="300px" width="500px">
+	<img name="imagemZero" id="imagemZero" src="./images/painel1.jpg">
+	</div>
+	<h1>Nossa História: </h1>
+	<br>
+	<p>Tudo começou em 1420, com a assinatura do Tratado de Troyes. O tratado surgiu depois de um cerco levantado por Henrique V a Paris e 
+	do assassinato de João o Temerário, Duque da Borgonha, que pôs fim às esperanças francesas de ajuda. As negociações levaram cerca de 
+	seis meses e o texto visava o fim do conflito que durava já desde 1337. Com a força das armas do seu lado, Henrique V pôde impor as 
+	suas condições. O tratado deserdava o delfim, futuro Carlos	VII de França, e nomeava o próprio Henrique, ou os seus descendentes, 
+	como herdeiros do trono de França. Com isso, a família de Carlos VII começou a se desfazer de bens e propriedades como forma de manter
+	seu esdrúxulo padrão de vida. Com tal atividade, a família se viu não só vivendo de uma forma luxuosa, mas também oferecendo o melhor 
+	a seus caros clientes.
+	</p>
+	<br>
+	<h1>Nossos Valores: </h1>
+	<br>
+	<p></p>
+	<br>
+	<h1>Nossa Missão: </h1>
+	<br>
+	<p></p>
+	<h1>Venha falar com um de nossos representantes!</h1>
+</div>
+
+<footer id="rodape" name="rodape">
+	<ul>
+		<li>Area do cliente</li>
+		<li>Fale Conosco</li>
+		<li>Anuncie o seu Imóvel</li>
+		<li>Início</li>
+	</ul>
+</footer>
+</div>
+</body>
+</html>

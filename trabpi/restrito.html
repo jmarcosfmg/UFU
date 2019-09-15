@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<title>Imobiliaria Ok - Acesso Restrito</title>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/estilos.css">
+<script>
+	$(document).ready(function(){
+
+	});
+</script>
+</head>
+<body>
+<header id="cabecalho" name="cabecalho"></header>
+
+	<nav class="navbar" id="barraNavegacao" name="barraNavegacao">
+		<div style="width:50%; margin: 0px auto;">
+			<ul>
+				<li><a href="./home.html">Cadastro de funcionários da imobiliária</a></li>
+				<li><a href="./pesquisa.html">Cadastrar Proprietário</a></li>
+				<li><a href="#redirecionar">Cadastrar Imóvel</a>
+				<li><a href="#redirecionar">Listar Funcionários</a>
+				<li><a href="#redirecionar">Listar Clientes</a>
+				<li><a href="#redirecionar">Listar Imóveis</a>
+				<li><a href="#redirecionar">Listar Interesses</a>
+				<li><a href="#fale">Sair</a></li>
+				</ul>
+			</div>
+		</nav>
+
+<div class="conteudo">
+
+</div>
+
+<div id="corpo" name="corpo" class="principal">
+
+	<form method=POST id="cadastroFuncionario">
+		<label for="nome">Nome:</label>
+		<input type="text" id="nome" name="nome">
+		<label for="telefone">Telefone:</label>
+		<input type="tel" id="telefone" name="telefone">
+		<label for="cpf">CPF:</label>
+		<input type="text" id="cpf" name="cpf" pattern="[0-9]{3}+\.[0-9]{3}+\.[0-9]{3}+\.+\-[0-9]{2}">
+		<label for="endereco">Endereço:</label>
+		<input type="text" id="endereco" name="endereco">
+		<label for="telefoneCont">Telefone de Contato:</label>
+		<input type="tel" id="telefoneCont" name="telefoneCont">
+		<label for="telefoneCel">Telefone Celular:</label>
+		<input type="tel" id="telefoneCel" name="telefoneCel">
+		<label for="dataIngresso">Data de Ingresso:</label>
+		<input type="date" id="dataIngresso" name="dataIngresso">
+		<label for="cargo">Cargo:</label>
+		<select id="cargo">
+			<option value="corretor">Corretor</option>
+			<option value="gerente">Gerente</option>
+			<option value="secretario">Secretario(a)</option>
+			<option value="sGerais">Serviços Gerais</option>
+		</select>		
+		<label for="salario">Salario:</label>
+		<input type="text" id="salario" name="salario">
+		<label for="login">Login:</label>
+		<input type="text" id="login" name="login">
+		<label for="senha">Senha:</label>
+		<input type="password" id="senha" name="senha">
+		<input type="reset" value="Limpar">
+		<input type="submit" value="Salvar">
+	</form>
+	<form method=POST id="cadastroCliente">
+		<label for="nome">Nome:</label>
+		<input type="text" id="nome" name="nome">
+		<label for="telefone">Telefone:</label>
+		<input type="tel" id="telefone" name="telefone">
+		<label for="cpf">CPF:</label>
+		<input type="text" id="cpf" name="cpf" pattern="[0-9]{3}+\.[0-9]{3}+\.[0-9]{3}+\.+\-[0-9]{2}">
+		<label for="endereco">Endereço:</label>
+		<input type="text" id="endereco" name="endereco">
+		<label for="telefoneCont">Telefone de Contato:</label>
+		<input type="tel" id="telefoneCont" name="telefoneCont">
+		<label for="telefoneCel">Telefone Celular:</label>
+		<input type="tel" id="telefoneCel" name="telefoneCel">
+		<label for="email">E-mail:</label>
+		<input type="email" id="email" name="email">
+		<label for="cargo">Cargo:</label>
+		<select id="cargo">
+			<option value="corretor">Corretor</option>
+			<option value="gerente">Gerente</option>
+			<option value="secretario">Secretario(a)</option>
+			<option value="sGerais">Serviços Gerais</option>
+		</select>		
+		<label for="salario">Salario:</label>
+		<input type="text" id="salario" name="salario">
+		<label for="login">Login:</label>
+		<input type="text" id="login" name="login">
+		<label for="senha">Senha:</label>
+		<input type="password" id="senha" name="senha">
+		<input type="reset" value="Limpar">
+		<input type="submit" value="Salvar">
+	</form>
+
+</div>
+
+<footer id="rodape" name="rodape">
+	<ul>
+		<li>Area do cliente</li>
+		<li>Fale Conosco</li>
+		<li>Anuncie o seu Imóvel</li>
+		<li>Início</li>
+	</ul>
+</footer>
+</div>
+</body>
+</html>

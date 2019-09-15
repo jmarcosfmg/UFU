@@ -7,20 +7,28 @@
 <link rel="stylesheet" type="text/css" href="./css/estilos.css">
 <script>
 	$(document).ready(function(){
-		var aux=1;
-		$("painelDeImg.img").change(function(){
-			var image = this;
-			aux = (aux+1)%5;
-			image.fadeOut(50, function () {
-				image.attr('src', './images/painel'+aux+'.jpg');
-				image.fadeIn(50);
-				image.delay(50);
+		var aux=1, imagem = $("#imagemZero");
+	
+	imagem.attr('src', './images/painel'+aux+'.jpg');
+	(function loop() {
+		imagem.fadeOut(500);
+		aux = 1+(aux)%4;
+		imagem.attr('src', './images/painel'+aux+'.jpg').fadeIn(500).delay(000, loop());
+	}());
+		
+		/*
+		$("#imagemZero").click(function(){
+			aux = 1+(aux)%4;
+			$(this).fadeOut(50, function () {
+				$(this).attr('src', './images/painel'+aux+'.jpg');
+				$(this).fadeIn(50);
+				$(this).delay(50);
 			});
 		});
 		
-		$("painelDeImg.img").attr('src', './images/painel'+aux+'.jpg');
+		
+		*/
 	});
-	
 </script>
 </head>
 <body>
@@ -33,7 +41,7 @@
 				<li><a href="./pesquisa.html">Pesquisar Imóveis</a></li>
 
 				<a href="#redirecionar">
-					<img src="ufu.png" style="height:30px; width:40px; margin-bottom:-2%;"></a>
+					<img src="./images/ufu.png" style="height:30px; width:40px; margin-bottom:-2%;"></a>
 
 					<li><a href="#login">Login</a></li>
 					<li><a href="#fale">Fale conosco</a></li>
@@ -43,9 +51,8 @@
 		</nav>
 
 <div id="corpo" name="corpo" class="principal">
-	<img src="./images/logo.png">
-	<div name="painelDeImg" id="painelDeImg" height="300px" width="500px">
-	<img name="imagemZero" id="imagemZero" src="./images/painel1.jpg">
+	<div name="painelDeImg" id="painelDeImg">
+		<img name="imagemZero" id="imagemZero">
 	</div>
 	<h1>Nossa História: </h1>
 	<br>

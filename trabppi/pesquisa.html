@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Imobiliaria Palmares - Pesquisa de Imóvel</title>
+	<meta charset="UTF-8">
+	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="./css/estilos.css">
+
+</head>
+
+<body>
+
+	<header id="cabecalho" class="cabecalho" name="cabecalho">
+		<h1 style="text-align: center;">Imobiliária Palmares</h1>
+	</header>
+
+	<nav class="navbar" id="barraNavegacao" name="barraNavegacao">
+		<div style="width:50%; margin: 0px auto;">
+			<ul>
+				<li><a href="./home.html">Início</a></li>
+				<li><a href="./pesquisa.html">Pesquisar Imóveis</a></li>
+
+				<a href="#redirecionar">
+					<img src="./images/ufu.png" style="height:30px; width:40px; margin-bottom:-2%;"></a>
+
+					<li><a href="#login">Login</a></li>
+					<li><a href="#fale">Fale conosco</a></li>
+				</ul>
+
+			</div>
+		</nav>
+		
+		<div class="principal" class="container"> 
+			<h1>Pesquisar Imóvel</h1>
+
+			<form name="pesquisa" >
+				<div class="form-group col-sm-12">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input form-control" type="radio" name="tipoImovel"value="aquisicao" checked>Aquisição
+					</div>
+
+					<div class="form-check form-check-inline">
+						<input type="radio" class="form-check-input form-control" name="tipoImovel" value="locacao">Locação <br><br>
+					</div>
+				</div>
+
+				<div class="form-group col-sm-4">
+						<label for="bairro">Bairro</label>
+						<select name="bairro" class="form-control">
+							<option value="monica">Santa Mônica</option>
+							<option value="segismundo">Segismundo Pereira</option>
+							<option value="aparecida">Nossa Senhora Aparecida</option>
+						</select>
+					</div><br>
+
+				<div class="form-group">
+					<label for="faixaPreco" class="col-sm-4">Faixa de Preço</label><br>
+					
+					<div class="col-sm-4">
+						<label for="minimo">Mínimo:</label>
+						<input type="text" class="form-control" name="minimo" id="minimo" placeholder="De R$">
+					</div>
+
+					<div class="col-sm-4">
+						<label for="minimo">Máximo:</label>
+						<input type="text" class="form-control" name="maximo" id="maximo" placeholder="Até R$"> <br><br>
+					</div>
+				</div>
+
+				<label for="infoExtras">Outras informações:</label><br>
+				<textarea id="infoExtras" name="infoExtras" rows="5" cols="50" placeholder="Acrescente mais informações sobre a descrição do imóvel desejado"></textarea>
+
+			</form>
+		</div>
+
+		<footer id="rodape" name="rodape">
+			<ul>
+				<li>Área do cliente</li>
+				<li>Fale conosco</li>
+				<li>Anuncie seu imóvel</li>
+			</ul>
+		</footer>
+
+	</body>
+	</html>

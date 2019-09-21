@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<title>Imobiliaria Ok - Acesso Restrito</title>
-<meta charset="UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="./css/estilos.css">
-<script>
-	$(document).ready(function(){
+	<title>Imobiliaria Palmares - Pesquisa de Imóvel</title>
+	<meta charset="UTF-8">
+	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-	});
-</script>
+	<link rel="stylesheet" type="text/css" href="./css/estilos.css">
+
+	<script>
+		$(document).ready(function(){
+			mostra("#cadastroFuncionario")
+		});
+		
+		function mostra(variavel){
+			$("form").hide();
+			$(variavel).show();
+		}
+	</script>
+
 </head>
-<body>
-<header id="cabecalho" name="cabecalho"></header>
 
-	<nav class="navbar" id="barraNavegacao" name="barraNavegacao">
-		<div style="width:50%; margin: 0px auto;">
+<body>
+
+	<header id="cabecalho" class="cabecalho" name="cabecalho">
+		<h1 style="text-align: center;">Imobiliária Palmares</h1>
+	</header>
+	<nav class="sticky-top navbar" id="barraNavegacao" name="barraNavegacao">
 			<ul>
-				<li><a href="./home.html">Cadastro de funcionários da imobiliária</a></li>
-				<li><a href="./pesquisa.html">Cadastrar Proprietário</a></li>
+				<li><a href="javascript:void(0);"  onClick="mostra('#cadastroFuncionario')">Cadastro de funcionários da imobiliária</a></li>
+				<li><a href="javascript:void(0);"  onClick="mostra('#cadastroCliente')">Cadastrar Proprietário</a></li>
 				<li><a href="#redirecionar">Cadastrar Imóvel</a>
 				<li><a href="#redirecionar">Listar Funcionários</a>
 				<li><a href="#redirecionar">Listar Clientes</a>
@@ -26,7 +40,6 @@
 				<li><a href="#redirecionar">Listar Interesses</a>
 				<li><a href="#fale">Sair</a></li>
 				</ul>
-			</div>
 		</nav>
 
 <div class="conteudo">
@@ -35,36 +48,151 @@
 
 <div id="corpo" name="corpo" class="principal">
 
-	<form method=POST id="cadastroFuncionario">
-		<label for="nome">Nome:</label>
-		<input type="text" id="nome" name="nome">
-		<label for="telefone">Telefone:</label>
-		<input type="tel" id="telefone" name="telefone">
-		<label for="cpf">CPF:</label>
-		<input type="text" id="cpf" name="cpf" pattern="[0-9]{3}+\.[0-9]{3}+\.[0-9]{3}+\.+\-[0-9]{2}">
+	<form method=POST id="cadastroFuncionario" class="form form-group">
+		<div class="row">
+		<div class="col-sm-8">
+			<label for="nome">Nome:</label>
+			<input type="text" id="nome" name="nome" class="form-control">
+		</div>
+		<div class="col-sm-4">
+			<label for="dataIngresso">Data de Ingresso:</label>
+			<input type="date" id="dataIngresso" name="dataIngresso" class="form-control">
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-sm-8">
+		
 		<label for="endereco">Endereço:</label>
-		<input type="text" id="endereco" name="endereco">
-		<label for="telefoneCont">Telefone de Contato:</label>
-		<input type="tel" id="telefoneCont" name="telefoneCont">
+		<input type="text" id="endereco" name="endereco" class="form-control">
+		</div>
+		<div class="col-sm-4">
+				<label for="cpf">CPF:</label>
+		<input type="text" id="cpf" name="cpf" pattern="[0-9]{3}+\.[0-9]{3}+\.[0-9]{3}+\.+\-[0-9]{2}" class="form-control">
+		</div>
+		</div>
+				<div class="row">
+		<div class="col-sm-4">
+		
+		<label for="telefone">Telefone:</label>
+		<input type="tel" id="telefone" name="telefone" class="form-control">
+		</div>
+		<div class="col-sm-4">
 		<label for="telefoneCel">Telefone Celular:</label>
-		<input type="tel" id="telefoneCel" name="telefoneCel">
-		<label for="dataIngresso">Data de Ingresso:</label>
-		<input type="date" id="dataIngresso" name="dataIngresso">
-		<label for="cargo">Cargo:</label>
-		<select id="cargo">
+		<input type="tel" id="telefoneCel" name="telefoneCel" class="form-control">
+		</div>
+		<div class="col-sm-4">
+		<label for="telefoneCont">Telefone de Contato:</label>
+		<input type="tel" id="telefoneCont" name="telefoneCont" class="form-control">
+		</div>
+		</div>
+						<div class="row">
+		<div class="col-sm-4">
+		
+<label for="cargo">Cargo:</label>
+		<select id="cargo" class="form-control">
 			<option value="corretor">Corretor</option>
 			<option value="gerente">Gerente</option>
 			<option value="secretario">Secretario(a)</option>
 			<option value="sGerais">Serviços Gerais</option>
-		</select>		
-		<label for="salario">Salario:</label>
-		<input type="text" id="salario" name="salario">
+		</select>
+		</div>
+		<div class="col-sm-4">
 		<label for="login">Login:</label>
-		<input type="text" id="login" name="login">
+		<input type="text" id="login" name="login" class="form-control">
+		</div>
+		<div class="col-sm-4">
 		<label for="senha">Senha:</label>
-		<input type="password" id="senha" name="senha">
-		<input type="reset" value="Limpar">
-		<input type="submit" value="Salvar">
+		<input type="password" id="senha" name="senha" class="form-control">
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-sm-4">
+		<label for="salario">Salário:</label>
+		<input type="text" id="salario" name="salario" class="form-control">
+		
+		</div>
+		<div class="col-sm-4">
+		<input type="reset" value="Limpar" class="btn btn-outline-warning center">
+		</div>
+		<div class="col-sm-4">
+		<input type="submit" value="Salvar" class="btn btn-outline-success center" >
+		</div>
+		</div>
+		
+	</form>
+	<form method=POST id="cadastroCliente" class="form form-group">
+		<div class="row">
+		<div class="col-sm-8">
+			<label for="nome">Nome:</label>
+			<input type="text" id="nome" name="nome" class="form-control">
+		</div>
+		<div class="col-sm-4">
+				<label for="email">E-mail:</label>
+		<input type="email" id="email" name="email" class="form-control">
+			
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-sm-8">
+		
+		<label for="endereco">Endereço:</label>
+		<input type="text" id="endereco" name="endereco" class="form-control">
+		</div>
+		<div class="col-sm-4">
+				<label for="cpf">CPF:</label>
+		<input type="text" id="cpf" name="cpf" pattern="[0-9]{3}+\.[0-9]{3}+\.[0-9]{3}+\.+\-[0-9]{2}" class="form-control">
+		</div>
+		</div>
+				<div class="row">
+		<div class="col-sm-4">
+		
+		<label for="telefone">Telefone:</label>
+		<input type="tel" id="telefone" name="telefone" class="form-control">
+		</div>
+		<div class="col-sm-4">
+		<label for="telefoneCel">Telefone Celular:</label>
+		<input type="tel" id="telefoneCel" name="telefoneCel" class="form-control">
+		</div>
+		<div class="col-sm-4">
+		<label for="telefoneCont">Telefone de Contato:</label>
+		<input type="tel" id="telefoneCont" name="telefoneCont" class="form-control">
+		</div>
+		</div>
+						<div class="row">
+		<div class="col-sm-4">
+		
+		<label for="eCivil">Estado Civil:</label>
+		<select id="eCivil" class="form-control">
+			<option value="solteiro">Solteiro(a)</option>
+			<option value="casado">Casado(a)</option>
+			<option value="viuvo">Viúvo(a)</option>
+			<option value="outro">Não Declarado</option>
+		</select>		
+		</div>
+		<div class="col-sm-4">
+		<label for="profissao">Profissão:</label>
+		<input type="text" id="profissao" name="profissao" class="form-control">
+		</div>
+		<div class="col-sm-4">
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-sm-4">
+		<label for="login">Login:</label>
+		<input type="text" id="login" name="login" class="form-control">
+		</div>
+		<div class="col-sm-4">
+		<label for="senha">Senha:</label>
+		<input type="password" id="senha" name="senha" class="form-control">
+		</div>
+		<div class="col-sm-2">
+		<input type="reset" value="Limpar" class="btn btn-outline-warning center-block">
+		</div>
+		<div class="col-sm-2">
+		<input type="submit" value="Salvar" class="btn btn-outline-success center-block">
+		</div>
+		</div>
+		
 	</form>
 	<form method=POST id="cadastroCliente">
 		<label for="nome">Nome:</label>
@@ -79,17 +207,40 @@
 		<input type="tel" id="telefoneCont" name="telefoneCont">
 		<label for="telefoneCel">Telefone Celular:</label>
 		<input type="tel" id="telefoneCel" name="telefoneCel">
+
+
+		
+		<label for="login">Login:</label>
+		<input type="text" id="login" name="login">
+		<label for="senha">Senha:</label>
+		<input type="password" id="senha" name="senha">
+		<input type="reset" value="Limpar">
+		<input type="submit" value="Salvar">
+	</form>
+	<form method=POST id="cadastroImovel">
+		<label for="nome">Nome:</label>
+		<input type="text" id="nome" name="nome">
+		<label for="telefone">Telefone:</label>
+		<input type="tel" id="telefone" name="telefone">
+		<label for="cpf">CPF:</label>
+		<input type="text" id="cpf" name="cpf" pattern="[0-9]{3}+\.[0-9]{3}+\.[0-9]{3}+\.+\-[0-9]{2}">
+		<label for="endereco">Endereço:</label>
+		<input type="text" id="endereco" name="endereco">
+		<label for="telefoneCont">Telefone de Contato:</label>
+		<input type="tel" id="telefoneCont" name="telefoneCont">
+		<label for="telefoneCel">Telefone Celular:</label>
+		<input type="tel" id="telefoneCel" name="telefoneCel">
 		<label for="email">E-mail:</label>
 		<input type="email" id="email" name="email">
-		<label for="cargo">Cargo:</label>
-		<select id="cargo">
-			<option value="corretor">Corretor</option>
-			<option value="gerente">Gerente</option>
-			<option value="secretario">Secretario(a)</option>
-			<option value="sGerais">Serviços Gerais</option>
+		<label for="eCivil">Estado Civil:</label>
+		<select id="eCivil">
+			<option value="solteiro">Solteiro(a)</option>
+			<option value="casado">Casado(a)</option>
+			<option value="viuvo">Viúvo(a)</option>
+			<option value="outro">Não Declarado</option>
 		</select>		
-		<label for="salario">Salario:</label>
-		<input type="text" id="salario" name="salario">
+		<label for="profissao">Profissão:</label>
+		<input type="text" id="profissao" name="profissao">
 		<label for="login">Login:</label>
 		<input type="text" id="login" name="login">
 		<label for="senha">Senha:</label>

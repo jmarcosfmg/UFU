@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Imobiliaria Palmares - Pesquisa de Imóvel</title>
+	<meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="./css/estilos.css">
+
+	<script>
+		$(document).ready(function(){
+			$("#loginModal").modal("show");
+		});
+	</script>
+
+</head>
+
+<body>
+
+	<header id="cabecalho" class="cabecalho" name="cabecalho">
+		<h1 style="text-align: center;">Imobiliária Palmares</h1>
+	</header>
+	
+	<nav class="navbar nav" id="barraNavegacao" name="barraNavegacao">
+		<ul class="nav justify-content-center">
+		<li class="nav-item"><a class="nav-link" href="./home.html">Início</a></li>
+		<li class="nav-item"><a class="nav-link active" href="./pesquisa.html">Pesquisar Imóveis</a></li>
+		<li class="nav-item"><a href="#redirecionar" class="navbar-brand"> <img src="./images/ufu.png" style="height:30px; width:40px; margin-bottom:-2%;"></a></li>
+		<li class="nav-item"><a class="nav-link" href="./login.html">Login</a></li>
+		<li class="nav-item"><a class="nav-link" href="#fale">Fale conosco</a></li>
+		</ul>
+	</nav>
+
+	<div class="container">
+		<!-- Div definindo o conteúdo da janela modal -->
+	    <div class="modal fade" id="loginModal" role="dialog">
+
+	    	<div class="modal-dialog">
+
+	    		<!-- Conteúdo -->
+	    		 <div class="modal-content">
+
+	    		 	<div class="modal-header">
+	    		 		<h5 class="modal-title">Login</h5>
+	    		 		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	    		 			<span aria-hidden="true">&times;</span>
+	    		 		</button>
+	    		 	</div>
+								
+		        <div class="modal-body">
+		        	<form action="./restrito.html">
+		        		<div class="row">
+		        			<div class="form-group col-sm-8">
+		        				<label for="email" name="email"><b>Email</b></label>
+		        				<input type="email" class="form-control" placeholder="Digite seu email" id="email" required>
+		        			</div>
+		        		</div>
+
+		        		<div class="row">
+		        			<div class="form-group col-sm-8">
+		        				<label for="senha" name="senha"><b>Senha</b></label>
+		        				<input type="password" class="form-control" placeholder="Digite sua senha" id="senha" required>
+		        			</div>
+		        		</div><br>
+
+		        		<div class="row">
+		        			<div class="form-group col-sm-4">
+		        				<input type="submit" value="Login" class="btn btn-outline-success btn-block">
+		        			</div>
+		        		</div>
+		        	</form>
+		        </div>
+						
+		        <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        </div>
+		    </div>
+		</div>
+	</div>
+</div>
+
+	<footer id="rodape" name="rodape">
+		<ul>
+			<li>Área do cliente</li>
+			<li>Fale conosco</li>
+			<li>Anuncie seu imóvel</li>
+		</ul>
+	</footer>
+
+</body>
+</html> 

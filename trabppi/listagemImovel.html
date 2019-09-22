@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<title>Imobiliaria Palmares - Pesquisa de Imóvel</title>
+	<meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="./css/estilos.css">
+
+</head>
+
+<body>
+
+	<header id="cabecalho" class="cabecalho" name="cabecalho">
+		<h1 style="text-align: center;">Imobiliária Palmares</h1>
+	</header>
+	
+	<nav class="navbar nav" id="barraNavegacao" name="barraNavegacao">
+		<ul class="nav justify-content-center">
+		<li class="nav-item"><a class="nav-link" href="./home.html">Início</a></li>
+		<li class="nav-item"><a class="nav-link active" href="./pesquisa.html">Pesquisar Imóveis</a></li>
+		<li class="nav-item"><a href="#redirecionar" class="navbar-brand"> <img src="./images/ufu.png" style="height:30px; width:40px; margin-bottom:-2%;"></a></li>
+		<li class="nav-item"><a class="nav-link" href="./login.html">Login</a></li>
+		<li class="nav-item"><a class="nav-link" href="#fale">Fale conosco</a></li>
+		</ul>
+	</nav>
+
+	<div class="principal" class="container"> 
+			<h1>Essa é a pagina que vai aparecer as listagens dos imoveis</h1>
+			<p>Vou criar o modal pra pegar as informações do "tenho interesse"</p>
+
+			<div class="container">
+				<!-- Botão para abrir a janela modal -->
+				<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#interesseModal">Tenho Interesse</button>
+
+		<!-- Div definindo o conteúdo da janela modal -->
+	    <div class="modal fade" id="interesseModal" role="dialog">
+	    	<div class="modal-dialog">
+
+      <!-- Conteúdo -->
+      <div class="modal-content">
+			
+        <div class="modal-header">
+			<h5 class="modal-title">Tenho Interesse</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+        </div>
+				
+        <div class="modal-body">
+        	<form>
+        		<div class="row">
+        			<div class="form-group col-sm-8">
+        				<label for="nomeInteresse" name="nomeInteresse"><b>Nome</b></label>
+        				<input type="text" class="form-control"  placeholder="Digite seu nome completo" id="nomeInteresse" required>
+        			</div>
+        		</div>
+
+        		<div class="row">
+        			<div class="form-group col-sm-8">
+        				<label for="emailIntesse" name="emailIntesse"><b>Email</b></label>
+        				<input type="email" class="form-control" placeholder="Digite seu email" id="emailIntesse" required>
+        			</div>
+        		</div>
+
+        		<div class="row">
+        			<div class="form-group col-sm-8">
+        				<label for="telInteresse" name="telInteresse"><b>Telefone</b></label>
+        				<input type="text" class="form-control" name="telInteresse" placeholder="Digite seu telefone" id="telInteresse" required>
+        			</div>
+        		</div>
+
+        		<div class="row">
+					<div class="form-group col-sm-12">
+						<label for="infoInteresse"><b>Descrição da Proposta</b></label>
+						<textarea id="infoInteresse" class="form-control" name="infoInteresse" rows="3" cols="30" placeholder="Acrescente informações da sua proposta sobre o imóvel desejado"></textarea>
+					</div>
+				</div>
+
+        		<div class="row">
+        			<div class="form-group col-sm-4">
+        				<input type="submit" value="Enviar" class="btn btn-outline-success btn-block">
+        			</div>
+        		</div>
+
+        	</form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+	<footer id="rodape" name="rodape">
+		<ul>
+			<li>Área do cliente</li>
+			<li>Fale conosco</li>
+			<li>Anuncie seu imóvel</li>
+		</ul>
+	</footer>
+
+</body>
+</html> 

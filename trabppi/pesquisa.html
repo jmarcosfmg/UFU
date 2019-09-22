@@ -30,55 +30,50 @@
 	</nav>
 
 	<div class="principal" class="container"> 
-	<div class="row text-center align-items-center">
-	<div class="col-sm-3"></div>
-	<div class="col-sm-6">
-		<h1>Pesquisar Imóvel</h1>
-		
-		<form name="pesquisa" class="form-group">
-			<div class="row">
-				<div class="form-check-inline col-sm">
-					<input class="form-check-input" type="radio" name="tipoImovel" value="aquisicao" id="aquisicao" checked>
-					<label for="aquisicao" class="form-check-label">Aquisição</label>
+			<h1>Pesquisar Imóvel</h1><br>
+
+			<form name="pesquisa">
+				<div class="row form-group col-sm-6">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input form-control" type="radio" name="tipoImovel"value="aquisicao" checked>Aquisição
+					</div>
+
+					<div class="form-check form-check-inline">				
+						<input type="radio" class="form-check-input form-control" name="tipoImovel" value="locacao">Locação
+					</div>
 				</div>
-				<div class="form-check-inline col-sm">
-					<input type="radio" class="form-check-input" name="tipoImovel" id="locacao" value="locacao">
-					<label for="locacao" class="form-check-label">Locação</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group col-sm">
+
+				<div class="row form-group col-sm-4">
 					<label for="bairro">Bairro</label>
 					<select name="bairro" class="form-control">
 						<option value="monica">Santa Mônica</option>
 						<option value="segismundo">Segismundo Pereira</option>
 						<option value="aparecida">Nossa Senhora Aparecida</option>
 					</select>
-				</div>
-			</div>
-			<div class="row">
-				<label for="faixaPreco" class="col-sm">Faixa de Preço:</label>
-			</div>
-			<div class="row" id="faixaPreco">
-				<div class="col-sm">
-					<label for="minimo">Mínimo:</label>
-					<input type="text" class="form-control" name="minimo" id="minimo" placeholder="De R$">
+				</div><br>
+
+				<label for="faixaPreco">Faixa de Preço</label>
+
+				<div class="row">
+					<div class="form-group col-sm-4">
+						<label for="minimo">Mínimo:</label>
+						<input type="text" class="form-control" name="minimo" id="minimo" placeholder="De R$">
+					</div>
+
+					<div class="form-group col-sm-4">
+						<label for="minimo">Máximo:</label>
+						<input type="text" class="form-control" name="maximo" id="maximo" placeholder="Até R$">
+					</div>
 				</div>
 
-				<div class="col-sm">
-					<label for="minimo">Máximo:</label>
-					<input type="text" class="form-control" name="maximo" id="maximo" placeholder="Até R$">
+				<div class="row">
+					<div class="form-group col-sm-6">
+						<label for="infoExtras">Outras informações:</label>
+						<textarea id="infoExtras" class="form-control" name="infoExtras" rows="5" cols="50" placeholder="Acrescente mais informações sobre a descrição do imóvel desejado"></textarea>
+					</div>
 				</div>
-			</div>
-			 <br><br>
-			<div class="row">
-				<label for="descricao">Outras informações:</label>
-				<textarea id="descricao" name="descricao" rows="5" placeholder="Acrescente mais informações sobre a descrição do imóvel desejado" class="form-control"></textarea>
-			</div>
-		</form>
-	</div>
-	</div>
-	</div>
+			</form>
+		</div>
 
 	<footer id="rodape" name="rodape">
 		<ul>

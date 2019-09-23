@@ -109,7 +109,7 @@
 			</div>
 		</div>
 		<div class="row align-items-center">
-<div class="col-sm-4">
+		<div class="col-sm-4">
 			<label for="login">Login:</label>
 			<input type="text" id="login" name="login" class="form-control">
 		</div>
@@ -117,12 +117,12 @@
 		<label for="senha">Senha:</label>
 		<input type="password" id="senha" name="senha" class="form-control">
 		</div>
-			<div class="col-sm-2 text-center">
-				<input type="reset" value="Limpar" class="btn btn-outline-warning">
-			</div>
-			<div class="col-sm-2 text-center">
-				<input type="submit" value="Salvar" class="btn btn-outline-success">
-			</div>
+		<div class="col-sm-2 text-center">
+			<input type="reset" value="Limpar" class="btn btn-outline-warning">
+		</div>
+		<div class="col-sm-2 text-center">
+			<input type="submit" value="Salvar" class="btn btn-outline-success">
+		</div>
 		</div>
 		
 	</form>
@@ -203,11 +203,11 @@
 	<form method=POST id="cadastroImovel">
 	<div class="row text-center">
 		<div class="col">
-			<input type="radio" name="tipoImovel" class="form-check-input" id="ap" onClick="adiciona('#cadastroCasa')" value="apartamento">
+			<input type="radio" name="tipoImovel" class="form-check-input" id="ap" onClick="adiciona('#cadastroAp')" value="apartamento">
 			<label for="ap" class="form-check-label">Apartamento</label>
 		</div>
 		<div class="col">
-			<input type="radio" id="casa" name="tipoImovel" class="form-check-input"  onClick="adiciona('#cadastroAp')" value="casa">
+			<input type="radio" id="casa" name="tipoImovel" class="form-check-input"  onClick="adiciona('#cadastroCasa')" value="casa">
 			<label for="casa" class="form-check-label">Casa</label>
 		</div>
 	</div>
@@ -216,7 +216,10 @@
 	</div>
 	
 	</form>
-	<form method=POST id="cadastroCasa" class="form form-group">
+	<form method=POST id="cadastroCasa" class="form form-group border-success border-top">
+		<div class="row">
+				<hr>
+		</div>
 		<div class="row align-items-center">
 			<div class="col-sm">
 				<label for="qtdQuartos">Nº Quartos:</label>
@@ -240,20 +243,125 @@
 			</div>
 		</div>
 		<div class="row">
-			<label for="descricao">Descrição:</label>
-			<textarea id="descricao" name="descricao" rows="5" placeholder="Acrescente mais informações sobre a descrição do imóvel desejado" class="form-control"></textarea>
-		</div>
-		<div class="row"><br></div>
-		<div class="row text-center align-items-center">
-			<div class="col-sm">
-				<input type="reset" value="Limpar" class="btn btn-outline-warning">
+				<div class="col-lg-9">
+			<div class="row">
+				<div class="col-sm">
+					<label for="proprietario">Proprietário:</label>
+					<select id="proprietario" class="form-control">
+							<option value="carlaS">Carla Silva</option>
+							<option value="marionS">Marion Stark</option>
+							<option value="brunoG">Bruno Gomes</option>
+							<option value="yasminB">Yasmin Barros</option>
+							<option value="rafaelP">Rafael Pereira</option>
+							<option value="jacquelineBM">Jacqueline Bradley Marques</option>
+							<option value="vitorC">Vitor Correia</option>
+							<option value="ryanF">Ryan Fernandes</option>
+					</select>		
+				</div>
+				<div class="col-sm">
+					<label for="area">Área:</label>
+					<input class="form-control" type="text" placeholder="m²" id="área" pattern="[1-9](\d)*\,[0-9]{2}">
+				</div>
+				<div class="col-sm">
+					<label for="valor">Valor:</label>
+					<input class="form-control" type="text" id="valor" placeholder="R$" pattern="[1-9](\d)*\,[0-9]{2}">
+				</div>
 			</div>
-			<div class="col-sm">
-				<input type="submit" value="Salvar" class="btn btn-outline-success">
+			<div class="row">
+				<div class="col-sm">
+					<label for="descricao">Descrição:</label>
+					<textarea id="descricao" name="descricao" rows="7" placeholder="Acrescente mais informações sobre a descrição do imóvel desejado" class="form-control"></textarea>
+				</div>
 			</div>
 		</div>
-	</form>
-	<form method=POST id="cadastroAp" class="form form-group">
+				<div class="col-lg">
+					<p style="display:inline-block">Imagens:</p>
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="upload">Upload</span>
+						</div>
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="imagem1"
+							aria-describedby="upload">
+							<label class="custom-file-label" for="imagem1">Escolher Imagem</label>
+						</div>
+					</div>
+					<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="upload1">Upload</span>
+							</div>
+							<div class="custom-file">
+								<input type="file" class="custom-file-input" id="imagem1"
+								aria-describedby="upload1">
+								<label class="custom-file-label" for="imagem1">Escolher Imagem</label>
+							</div>
+					</div>
+					<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="upload2">Upload</span>
+							</div>
+							<div class="custom-file">
+								<input type="file" class="custom-file-input" id="imagem2"
+								aria-describedby="upload2">
+								<label class="custom-file-label" for="imagem2">Escolher Imagem</label>
+							</div>
+					</div>
+					<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="upload3">Upload</span>
+							</div>
+							<div class="custom-file">
+								<input type="file" class="custom-file-input" id="imagem3"
+								aria-describedby="upload3">
+								<label class="custom-file-label" for="imagem3">Escolher Imagem</label>
+							</div>
+					</div>
+					<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="upload4">Upload</span>
+							</div>
+							<div class="custom-file">
+								<input type="file" class="custom-file-input" id="imagem4"
+								aria-describedby="upload4">
+								<label class="custom-file-label" for="imagem4">Escolher Imagem</label>
+							</div>
+					</div>
+					<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="upload5">Upload</span>
+							</div>
+							<div class="custom-file">
+								<input type="file" class="custom-file-input" id="imagem5"
+								aria-describedby="upload5">
+								<label class="custom-file-label" for="imagem5">Escolher Imagem</label>
+							</div>
+					</div>
+					<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="upload6">Upload</span>
+							</div>
+							<div class="custom-file">
+								<input type="file" class="custom-file-input" id="imagem6"
+								aria-describedby="upload6">
+								<label class="custom-file-label" for="imagem6">Escolher Imagem</label>
+							</div>
+					</div>
+					</div>
+				</div>
+			<div class="row"><br></div>
+			<div class="row text-center align-items-center">
+				<div class="col-sm">
+					<input type="reset" value="Limpar" class="btn btn-outline-warning">
+				</div>
+				<div class="col-sm">
+					<input type="submit" value="Salvar" class="btn btn-outline-success">
+				</div>
+			</div>
+		</form>
+	<form method=POST id="cadastroAp" class="form form-group border-success border-top">
+		<div class="row">
+				<hr>
+		</div>
 		<div class="row align-items-center">
 			<div class="col-sm">
 				<label for="qtdQuartos">Nº Quartos:</label>
@@ -282,9 +390,8 @@
 			  <input class="form-control" type="text" id="andar" pattern="(\d)+">
 			</div>
 			<div class="col-sm">
-			  <label for="andar">Condomínio:</label>
-			  <label for="andar">R$:</label>
-			  <input class="form-control" type="text" id="andar" pattern="[1-9](\d)*\,[0-9]{2}">
+			  <label for="condominio">Condomínio:</label>
+			  <input class="form-control" placeholder="R$" type="text" id="condominio" pattern="[1-9](\d)*\,[0-9]{2}">
 			</div>
 			<div class="form-check col-sm">
 			  <input class="form-check-input" type="checkbox" value="portaria" id="portaria">
@@ -292,9 +399,111 @@
 			</div>
 		</div>
 		<div class="row">
-			<label for="descricao">Descrição:</label>
-			<textarea id="descricao" name="descricao" rows="5" placeholder="Acrescente mais informações sobre a descrição do imóvel desejado" class="form-control"></textarea>
+			<div class="col-lg-9">
+		<div class="row">
+			<div class="col-sm">
+				<label for="proprietario">Proprietário:</label>
+				<select id="proprietario" class="form-control">
+						<option value="carlaS">Carla Silva</option>
+						<option value="marionS">Marion Stark</option>
+						<option value="brunoG">Bruno Gomes</option>
+						<option value="yasminB">Yasmin Barros</option>
+						<option value="rafaelP">Rafael Pereira</option>
+						<option value="jacquelineBM">Jacqueline Bradley Marques</option>
+						<option value="vitorC">Vitor Correia</option>
+						<option value="ryanF">Ryan Fernandes</option>
+				</select>		
+			</div>
+			<div class="col-sm">
+				<label for="area">Área:</label>
+				<input class="form-control" type="text" placeholder="m²" id="área" pattern="[1-9](\d)*\,[0-9]{2}">
+			</div>
+			<div class="col-sm">
+				<label for="valor">Valor:</label>
+				<input class="form-control" type="text" id="valor" placeholder="R$" pattern="[1-9](\d)*\,[0-9]{2}">
+			</div>
 		</div>
+		<div class="row">
+			<div class="col-sm">
+				<label for="descricao">Descrição:</label>
+				<textarea id="descricao" name="descricao" rows="7" placeholder="Acrescente mais informações sobre a descrição do imóvel desejado" class="form-control"></textarea>
+			</div>
+		</div>
+	</div>
+			<div class="col-lg">
+				<p style="display:inline-block">Imagens:</p>
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="upload">Upload</span>
+					</div>
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" id="imagem1"
+						aria-describedby="upload">
+						<label class="custom-file-label" for="imagem1">Escolher Imagem</label>
+					</div>
+				</div>
+				<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="upload1">Upload</span>
+						</div>
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="imagem1"
+							aria-describedby="upload1">
+							<label class="custom-file-label" for="imagem1">Escolher Imagem</label>
+						</div>
+				</div>
+				<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="upload2">Upload</span>
+						</div>
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="imagem2"
+							aria-describedby="upload2">
+							<label class="custom-file-label" for="imagem2">Escolher Imagem</label>
+						</div>
+				</div>
+				<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="upload3">Upload</span>
+						</div>
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="imagem3"
+							aria-describedby="upload3">
+							<label class="custom-file-label" for="imagem3">Escolher Imagem</label>
+						</div>
+				</div>
+				<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="upload4">Upload</span>
+						</div>
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="imagem4"
+							aria-describedby="upload4">
+							<label class="custom-file-label" for="imagem4">Escolher Imagem</label>
+						</div>
+				</div>
+				<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="upload5">Upload</span>
+						</div>
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="imagem5"
+							aria-describedby="upload5">
+							<label class="custom-file-label" for="imagem5">Escolher Imagem</label>
+						</div>
+				</div>
+				<div class="input-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text" id="upload6">Upload</span>
+						</div>
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="imagem6"
+							aria-describedby="upload6">
+							<label class="custom-file-label" for="imagem6">Escolher Imagem</label>
+						</div>
+				</div>
+				</div>
+			</div>
 		<div class="row"><br></div>
 		<div class="row text-center align-items-center">
 			<div class="col-sm">

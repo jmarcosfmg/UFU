@@ -15,19 +15,24 @@
 	
 	$(document).ready(function(){
 		
-		for(varx=0;varx<8;varx++){
+		for(varx=0;varx<10;varx++){
 			let im = listaImoveis[varx];
 			let desc = im.descricao;
 			let nsuites = im.nSuites;
 			let nquartos = im.nQuartos;
-			$("#imoveis").append("<div class='row border border-success rounded' style='margin:2%; padding:1%'><div class='col-sm-4 border-success border-right'><p>Quartos: "+nquartos+"</p><p>Suítes: "+nsuites+"</p><p>"+desc+"</p><button type='button' class='btn btn-success btn-lg' data-toggle='modal' data-target='#interesseModal'>Tenho Interesse</button></div><div class='col-sm-4'></div><div class='col-sm-4'></div><div  class='col-sm-4'></div></div>");
+			let img1 = im.imagem[1];
+			let img2 = im.imagem[2];
+			let img3 = im.imagem[3];
+			$("#imoveis").append("<div class='row border border-success rounded' style='margin:2%; padding:1%'><div class='col-sm-4 border-success border-right'><p>Quartos: "+nquartos+"</p><p>Suítes: "+nsuites+"</p><p>"+desc+"</p><button type='button' class='btn btn-success btn-lg' data-toggle='modal' data-target='#interesseModal'>Tenho Interesse</button></div><div class='col-sm-4'>"+img1+"</div><div class='col-sm-4'>"+img2+"</div><div  class='col-sm-4'>"+img3+"</div></div>");
 		}
 		
 			$("#imoveis").removeClass("hidden");
 	});
 	
 	class Imovel {
-		constructor(id,qto,suit,slest,sljnt,arm,desc){
+		constructor(id,qto,suit,slest,sljnt,arm,desc,val,area,img){
+			this.valor = val;
+			this.area = area;
 			this.id = id;
 			this.nQuartos = qto;
 			this.nSuites = suit;
@@ -35,6 +40,7 @@
 			this.sJantar = sljnt;
 			this.armarios = arm;
 			this.descricao = desc;
+			this.imagem = img
 		}
 	}
 	
@@ -43,25 +49,26 @@
 	}
 	
 	class Apartamento extends Imovel{
-		constructor(id,qto,suit,slest,sljnt,arm,and,cond,port,desc){
-			super(id,qto,suit,slest,sljnt,arm,desc);
+		constructor(id,qto,suit,slest,sljnt,arm,and,cond,port,desc,val,area,img){
+			super(id,qto,suit,slest,sljnt,arm,desc,val,area,img);
 			this.portaria = port;
 			this.condominio = cond;
 			this.andar = and;
 		}
 	}
 	
-	var ap1 = new Apartamento('01',3,1,1,1,1,6,'430,00',1,"Prédio novo, próximo a escolas, farmácia, e supermercado. Condomínio possui piscina, elevador e academia.");
-	var ap2 = new Apartamento('02',1,1,1,0,1,12,'1500,00',1,"Condomínio de luxo, com vaga para 3 carros. Sala ampla com vista para o centro da cidade. Apartamento com varanda gourmet, banheira de hidromassagem e elevador com chave. Amenidades: piscina aquecida, elevador, academia, salão de festas na cobertura.");
-	var ap3 = new Apartamento('03',4,2,2,1,1,3,'600,00',0,"Localização excelente, no coração da cidade. Apartamento amplo, com 3 quartos + escritório. Não possui garagem, portaria 12 hrs. Sem elevador.");
-	var ap4 = new Apartamento('04',2,1,1,1,1,0,'250,00',1,"Apartamento 2/4, térreo, com playground e jardim privativo.");
-	
-	var cs1 = new Casa('01',3,1,1,1,0,"Casa no centro, próximo a escolas, farmácia, e supermercado.");
-	var cs2 = new Casa('02',6,3,3,1,1,"Casa de luxo, com vaga para 3 carros. Sala ampla com vista para o centro da cidade. Possui: varanda gourmet, banheira de hidromassagem, piscina aquecida, academia e salão de festas.");
-	var cs3 = new Casa('03',3,2,2,1,1,"Localização excelente, no coração da cidade. Casa ampla, com 3 quartos + escritório. Não possui garagem, comércio no térreo.");
-	var cs4 = new Casa('04',2,1,1,1,0,"Casa geminada com 2/4, em condomínio com playground e academia. Aceita animais.");
-	
-	var listaImoveis = [ap1,ap2,ap3,ap4,cs1,cs2,cs3,cs4];
+	var ap1 = new Apartamento('001',3,1,1,1,1,6,'430,00',1,"Prédio novo, próximo a escolas, farmácia, e supermercado. Condomínio possui piscina, elevador e academia.",'360000,00',81,);
+	var ap2 = new Apartamento('002',1,1,1,0,1,12,'1500,00',1,"Condomínio de luxo, com vaga para 3 carros. Sala ampla com vista para o centro da cidade. Apartamento com varanda gourmet, banheira de hidromassagem e elevador com chave. Amenidades: piscina aquecida, elevador, academia, salão de festas na cobertura.",'3600,00',75);
+	var ap3 = new Apartamento('003',4,2,2,1,1,3,'600,00',0,"Localização excelente, no coração da cidade. Apartamento amplo, com 3 quartos + escritório. Não possui garagem, portaria 12 hrs. Sem elevador.",'780,00',150);
+	var ap4 = new Apartamento('004',2,1,1,1,1,0,'250,00',1,"Apartamento 2/4, térreo, com playground e jardim privativo.",'220000,00',65);
+	var ap5 = new Apartamento('005',3,1,1,1,0,'-','-',1,"Apartamento todo reformado com 97m² com 3 quartos, sendo 1 com suíte, sacada, banheiro social, cozinha, área de serviço separada, 1 vaga de garagem, piso em porcelana, elevador.",'1300,00',97,[<img src="./images/imovel2/quarto3.jpg" alt="quarto3"></img>,<img src="./images/imovel2/cozinha.jpg" alt="cozinha"></img>,<img src="./images/imovel2/sacada.jpg" alt="sacada"></img>,<img src="./images/imovel2/banheiro.jpg" alt="banheiro"></img>,<img src="./images/imovel2/quarto.jpg" alt="quarto"></img>,<img src="./images/imovel2/sala.jpg" alt="sala"></img>]);
+
+	var cs1 = new Casa('101',3,1,1,1,0,"Casa no centro, próximo a escolas, farmácia, e supermercado.",'650000,00',200,);
+	var cs2 = new Casa('102',6,3,3,1,1,"Casa de luxo, com vaga para 3 carros. Sala ampla com vista para o centro da cidade. Possui: varanda gourmet, banheira de hidromassagem, piscina aquecida, academia e salão de festas.",'1895000,00',450);
+	var cs3 = new Casa('103',3,2,2,1,1,"Localização excelente, no coração da cidade. Casa ampla, com 3 quartos + escritório. Não possui garagem, comércio no térreo.",'240000.00',220);
+	var cs4 = new Casa('104',2,1,1,1,0,"Casa geminada com 2/4, em condomínio com playground e academia. Aceita animais.",'300000,00',120);
+	var cs5 = new Casa('105',2,0,1,1,1,"Casa nova com 90m² de área privativa de 2 quartos, banheiro social, cozinha com armário, área de serviço separada, 1 vaga de garagem, churrasqueira.",'1200,00',90,[document.createElement("img").atr('src',"./images/imovel1/churrasqueira.jpg"),document.createElement("img").atr('src',"/images/imovel1/quarto1.jpg"),document.createElement("img").atr('src',"./images/imovel1/cozinha.jpg"),document.createElement("img").atr('src',"./images/imovel1/areaServico.jpg"),document.createElement("img").atr('src',"./images/imovel1/sala2.jpg"),document.createElement("img").atr('src',"./images/imovel1/banheiro.jpg")]);
+	var listaImoveis = [ap1,ap5,cs4,cs5,cs2,ap5,ap3,cs1,ap4,ap2,cs3];
 	</script>
 
 </head>

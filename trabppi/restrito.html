@@ -18,6 +18,8 @@
 		function mostra(variavel){
 			$("form").hide();
 			$(variavel).show();
+			$("nav ul li a").removeClass("active");
+			$(this).addClass("active");
 		}
 		
 		function adiciona(variavel){

@@ -14,31 +14,20 @@
 	$(document).ready(function(){
 		var aux=1, imagem = $("#imagemZero");
 	
-	//imagem.attr('src', './images/painel'+aux+'.jpg');
+	imagem.attr('src', './images/painel'+aux+'.jpg');
 	
 	function loop() {	
-		imagem.fadeOut(500).attr('src', './images/painel'+aux+'.jpg').fadeIn(500);;
 		aux = 1+(aux)%4;
+			$("#imagemZero").fadeOut(500, function () {
+				$("#imagemZero").attr('src', './images/painel'+aux+'.jpg');
+				$("#imagemZero").fadeIn(500);
+			});
 	};
 
 	var interval = self.setInterval(function(){loop()},3000);
-		
-		
-		/*
-		
 
-	
-		$("#imagemZero").click(function(){
-			aux = 1+(aux)%4;
-			$(this).fadeOut(50, function () {
-				$(this).attr('src', './images/painel'+aux+'.jpg');
-				$(this).fadeIn(50);
-				$(this).delay(50);
-			});
-		});
+		$("#imagemZero").click(loop);
 		
-		
-		*/
 	});
 </script>
 </head>

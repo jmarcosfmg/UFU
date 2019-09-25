@@ -32,14 +32,14 @@
 	<div class="principal" class="container"> 
 			<h1>Pesquisar Imóvel</h1><br>
 
-			<form name="pesquisa">
+			<form name="pesquisa" action='./listagemImovel.html' method=POST>
 				<div class="row form-group col-sm-6">
 					<div class="form-check form-check-inline">
-						<input class="form-check-input form-control" type="radio" name="tipoImovel"value="aquisicao" checked>Aquisição
+						<input class="form-check-input" type="radio" name="tipoImovel"value="aquisicao" checked>Aquisição
 					</div>
 
 					<div class="form-check form-check-inline">				
-						<input type="radio" class="form-check-input form-control" name="tipoImovel" value="locacao">Locação
+						<input type="radio" class="form-check-input" name="tipoImovel" value="locacao">Locação
 					</div>
 				</div>
 
@@ -72,6 +72,12 @@
 					<div class="form-group col-sm-6">
 						<label for="infoExtras">Outras informações:</label>
 						<textarea id="infoExtras" class="form-control" name="infoExtras" rows="5" cols="50" placeholder="Acrescente mais informações sobre a descrição do imóvel desejado"></textarea>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-3">
+						<input type="submit" class="btn btn-outline-success">;
 					</div>
 				</div>
 			</form>

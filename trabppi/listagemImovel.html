@@ -15,12 +15,12 @@
 	
 	$(document).ready(function(){
 		
-		for(varx=0;varx<3;varx++){
+		for(varx=0;varx<10;varx++){
 			let im = listaImoveis[varx];
 			let desc = im.descricao;
 			let nsuites = im.nSuites;
 			let nquartos = im.nQuartos;
-			$("#imoveis").append("<div onClick='criaModal()' class='row border border-success rounded' style='margin:2%; padding:1%'><div class='col-sm-3 border-success border-right'><p>Quartos: "+nquartos+"</p><p>Suítes: "+nsuites+"</p><p>"+desc+"</p><button type='button' class='btn btn-success btn-lg' data-toggle='modal' data-target='#interesseModal'>Tenho Interesse</button></div><div class='col-sm-3'>"+criaImg(im.id, 1)+"</div><div class='col-sm-3'>"+criaImg(im.id, 2)+"</div><div  class='col-sm-3'>"+criaImg(im.id, 3)+"</div></div>");
+			$("#imoveis").append("<div onClick='criaModal()' id='"+im.id+"' class='row border border-success rounded' style='margin:2%; padding:1%'><div class='col-sm-3 border-success border-right'><p>Quartos: "+nquartos+"</p><p>Suítes: "+nsuites+"</p><p>"+desc+"</p><button type='button' class='btn btn-success btn-lg' data-toggle='modal' data-target='#interesseModal'>Tenho Interesse</button></div><div class='col-sm-3'>"+criaImg(im.id, 1)+"</div><div class='col-sm-3'>"+criaImg(im.id, 2)+"</div><div  class='col-sm-3'>"+criaImg(im.id, 3)+"</div></div>");
 		}
 			$("#imoveis").removeClass("hidden");
 	});
@@ -29,12 +29,8 @@
 		return "<img class='img-fluid' style='object-fit:cover' src='./images/imoveis/imovel"+id+"/img"+num+".jpg' alt=im"+id+"_"+num+">";
 	}
 
-	function criaModal(){
-		
-	}
-
 	class Imovel {
-		constructor(id,qto,suit,slest,sljnt,arm,desc,val,area,img){
+		constructor(id,qto,suit,slest,sljnt,arm,alg,desc,val,area,img){
 			this.valor = val;
 			this.area = area;
 			this.id = id;
@@ -44,7 +40,8 @@
 			this.sJantar = sljnt;
 			this.armarios = arm;
 			this.descricao = desc;
-			this.imagem = img
+			this.imagem = img;
+			this.aluguel = alg; //indica se a casa está à venda ou se é aluguel
 		}
 	}
 	
@@ -53,25 +50,47 @@
 	}
 	
 	class Apartamento extends Imovel{
-		constructor(id,qto,suit,slest,sljnt,arm,and,cond,port,desc,val,area,img){
-			super(id,qto,suit,slest,sljnt,arm,desc,val,area,img);
+		constructor(id,qto,suit,slest,sljnt,arm,and,cond,port,alg,desc,val,area,img){
+			super(id,qto,suit,slest,sljnt,arm,alg,desc,val,area,img);
 			this.portaria = port;
 			this.condominio = cond;
 			this.andar = and;
 		}
 	}
-	
-	var ap1 = new Apartamento('1',3,1,1,1,1,6,'430,00',1,"Prédio novo, próximo a escolas, farmácia, e supermercado. Condomínio possui piscina, elevador e academia.",'360000,00',81);
-	var ap2 = new Apartamento('2',1,1,1,0,1,12,'1500,00',1,"Condomínio de luxo, com vaga para 3 carros. Sala ampla com vista para o centro da cidade. Apartamento com varanda gourmet, banheira de hidromassagem e elevador com chave. Amenidades: piscina aquecida, elevador, academia, salão de festas na cobertura.",'3600,00',75);
-	var ap3 = new Apartamento('3',4,2,2,1,1,3,'600,00',0,"Localização excelente, no coração da cidade. Apartamento amplo, com 3 quartos + escritório. Não possui garagem, portaria 12 hrs. Sem elevador.",'780,00',150);
-	var ap4 = new Apartamento('4',2,1,1,1,1,0,'250,00',1,"Apartamento 2/4, térreo, com playground e jardim privativo.",'220000,00',65);
-	var ap5 = new Apartamento('5',3,1,1,1,0,'-','-',1,"Apartamento todo reformado com 97m² com 3 quartos, sendo 1 com suíte, sacada, banheiro social, cozinha, área de serviço separada, 1 vaga de garagem, piso em porcelana, elevador.",'1300,00',97);
-	var cs1 = new Casa('6',3,1,1,1,0,"Casa no centro, próximo a escolas, farmácia, e supermercado.",'650000,00',200);
-	var cs2 = new Casa('7',6,3,3,1,1,"Casa de luxo, com vaga para 3 carros. Sala ampla com vista para o centro da cidade. Possui: varanda gourmet, banheira de hidromassagem, piscina aquecida, academia e salão de festas.",'1895000,00',450);
-	var cs3 = new Casa('8',3,2,2,1,1,"Localização excelente, no coração da cidade. Casa ampla, com 3 quartos + escritório. Não possui garagem, comércio no térreo.",'240000.00',220);
-	var cs4 = new Casa('9',2,1,1,1,0,"Casa geminada com 2/4, em condomínio com playground e academia. Aceita animais.",'300000,00',120);
-	var cs5 = new Casa('10',2,0,1,1,1,"Casa nova com 90m² de área privativa de 2 quartos, banheiro social, cozinha com armário, área de serviço separada, 1 vaga de garagem, churrasqueira.",'1200,00',90);
-	var listaImoveis = [ap1,ap2,ap3,cs5,cs2,ap5,ap3,cs1,ap4,ap2,cs3];
+
+	var ap1 = new Apartamento('2',3,1,'-','-',1,'-','-',1,1,"Apartamento todo reformado com 97m² com 3 quartos, sendo 1 com suíte, sacada, banheiro social, cozinha, área de serviço separada, 1 vaga de garagem, piso em porcelana, elevador",'1300,00',97);
+	var ap2 = new Apartamento('3',2,'-',1,0,1,'-','-',1,1,"Apartamento novo com 67m², 2 quartos com armários, banheiro social, cozinha, sala com 2 ambientes, área de serviço separada, 1 vaga de garagem, piso de taco, portaria 24 horas.",'1000,00',67);
+	var ap3 = new Apartamento('4',1,1,1,0,1,'-','-',1,0,"Imóvel a 400m da UFU-Santa Mônica. Prédio com Elevador, sala conjugada com a cozinha (com armário), lavanderia em anexo à cozinha. Hall com Armário, quarto com sacada, box em blindex, piso em cerâmica, 1 Vaga de Garagem.",'200.000,00',39);
+	var ap4 = new Apartamento('5',2,1,1,0,1,'-','155,00',0,1,"Apartamento 2 quartos no Bairro Santa Mônica, próximo ao Supermercado Valor e da UFU, um quarto sendo uma suíte com armário e sacada, banheiro social e banheiro suíte com armário, box e espelho, sala ampla com sacada, cozinha com armário, A.S separada, 1 vaga de garagem coberta, 60,00 m².",'850,00',60);
+	var ap5 = new Apartamento('6',3,1,1,1,0,'-','-',1,0,"Apto com varanda gourmet, fino acabamento, vaga para 2 carros e elevador. Apto tem sendo suíte com sacada, sala em 2 ambientes, varanda, cozinha com área de serviço separada, banheiro social, gás canalizado, piso em porcelato, e condomínio com guarita e entrada social.",'380.000,00',100);
+	var cs1 = new Casa('1',2,'-','-','-',1,1,"Casa nova com 90m² de área privativa de 2 quartos, banheiro social, cozinha com armário, área de serviço separada, 1 vaga de garagem, churrasqueira",'1200',90);
+	var cs2 = new Casa('7',3,2,1,1,1,0,"Casa com jardim, varanda, garagem para 04 carros, hall, sala, lavabo, 03 quartos todos com armários e jardim de inverno (sendo 02 suítes), copa, cozinha com armários, despensa com armários, 02 banheiros, quarto de empregada, área de serviço, quintal gramado e com plantas frutíferas e ainda com um fogão a lenha com churrasqueira, piso porcelanato laminado, blindex.",'600.000,00',174);
+	var cs3 = new Casa('8',3,0,1,1,0,1,"Casa no bairro Aparecida para fins comerciais ou residenciais, com sala de visitas, banheiro social, 3 quartos, sala de jantar, cozinha, área de serviço, 1 vaga de garagem, piso em cerâmica e boa localização.",'890.00',130);
+	var cs4 = new Casa('9',3,2,1,1,0,0,"Casa no Segismundo Pereira, com 3 quartos sendo 2 suites, sala em 2 ambientes com jardim de inverno, garagem para 3 carros, toda em porcelanato, lavabo, cozinha grande, energia solar, casa nova e pronta para morar.",'400.000,00',150);
+	var cs5 = new Casa('10',2,0,1,0,1,1,"Casa nova no Bairro Santa Mônica. 57m², com excelente acabamento. Hall de entrada, 2 quartos, sala, cozinha com armários embutidos, área de serviço externa, blindex no banheiro, todas as pias, lavatórios, tanques e bancadas em granito, garagem coberta, portões eletrônicos, interfone, internet Wi-Fi.",'898,00',57);
+	var listaImoveis = [ap1,cs4,ap2,cs5,cs2,ap5,ap3,cs1,ap4,cs3];
+
+	function criaModal(){
+		var id = $(this).attr("id");
+		var cont;
+		for(cont = 0; cont<listaImoveis.length-1; cont++){
+			console.log(cont, listaImoveis[cont].id, id);
+			if (listaImoveis[cont].id === id) break;
+		}
+
+		$("#info").text(descricaoCompleta(listaImoveis[cont]));
+		$("#imovelModal img").each(function(i){
+			$(this).attr("src", "./images/imoveis/imovel"+1+"/img"+(i+1)+".jpg");
+		});
+		$("#imovelModal").modal('show');
+	}
+
+	function descricaoCompleta(varr){
+		if(varr.length > 10){
+			return "Apartamento "+ varr.descricao;
+		}
+		return "Casa "+ varr.descricao; 
+	}
 	</script>
 
 </head>
@@ -165,52 +184,46 @@
 		<!--												outro modal-->
 		<!-- Div definindo o conteúdo da janela modal -->
 	    <div class="modal fade" id="imovelModal" role="dialog">
-	    	<div class="modal-dialog">
+	    	<div class="modal-dialog mw-100 w-75">
 				<!-- Conteúdo -->
 				<div class="modal-content">						
 					<div class="modal-header">
-						<h5 class="modal-title">Tenho Interesse</h5>
+						<h5 class="modal-title"></h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 						</button>
 					</div>							
 					<div class="modal-body">
-						<form>
-							<div class="row">
-								<div class="form-group col-sm-8">
-									<label for="nomeInteresse" name="nomeInteresse"><b>Nome</b></label>
-									<input type="text" class="form-control"  placeholder="Digite seu nome completo" id="nomeInteresse" required>
+						<div class="row">
+							<div class="col-lg-3">
+								<p id="info"></p>
+							</div>
+							<div class="col-lg">
+								<div class="row">
+									<div class="col-lg" style="overflow:hidden; height:width; margin:2%; padding:1%">
+										<img src="" style="width:100%;">
+									</div>
+									<div class="col-lg" style="overflow:hidden; height:width;margin:2%; padding:1%">
+										<img src="" style="width:100%;">
+									</div>
+									<div class="col-lg" style="overflow:hidden; height:width;margin:2%; padding:1%">
+										<img src="" style="width:100%;">
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col-lg" style="overflow:hidden; height:width;margin:2%; padding:1%">
+										<img src="" style="width:100%;">
+									</div>
+									<div class="col-lg" style="overflow:hidden; height:width;margin:2%; padding:1%">
+										<img src="" style="width:100%;">
+									</div>
+									<div class="col-lg" style="overflow:hidden; height:width;margin:2%; padding:1%">
+										<img src="" style="width:100%;">
+									</div>
 								</div>
 							</div>
-
-							<div class="row">
-								<div class="form-group col-sm-8">
-									<label for="emailIntesse" name="emailIntesse"><b>Email</b></label>
-									<input type="email" class="form-control" placeholder="Digite seu email" id="emailIntesse" required>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="form-group col-sm-8">
-									<label for="telInteresse" name="telInteresse"><b>Telefone</b></label>
-									<input type="text" class="form-control" name="telInteresse" placeholder="Digite seu telefone" id="telInteresse" required>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="form-group col-sm-12">
-									<label for="infoInteresse"><b>Descrição da Proposta</b></label>
-									<textarea id="infoInteresse" class="form-control" name="infoInteresse" rows="3" cols="30" placeholder="Acrescente informações da sua proposta sobre o imóvel desejado"></textarea>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="form-group col-sm-4">
-									<input type="submit" value="Enviar" class="btn btn-outline-success btn-block">
-								</div>
-							</div>
-
-						</form>
+						</div>
 					</div>
 				</div>
 			</div>

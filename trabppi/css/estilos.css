@@ -21,6 +21,9 @@ nav ul{
 nav ul li a{
 	color: rgb(0,100,55);
 }
+nav ul li{
+	padding: 0px 5px;
+}
 
 nav ul li a:hover, .active {
 	background-color: rgb(0,100,55);

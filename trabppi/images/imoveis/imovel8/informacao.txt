@@ -1,4 +1,4 @@
-Informações essenciais:
+﻿Informações essenciais:
 Tipo: Casa
 Área: 130m²
 Quartos: 3
